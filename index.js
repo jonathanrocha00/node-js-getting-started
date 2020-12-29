@@ -10,9 +10,10 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/cool', (req, res) => res.send(cool()))
   .get('/tarot', (req, res) => res.send(tarot()))
+  .get('/drag', (req, res) => res.send(drag()))
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
 
-tarot = () => {
+const tarot = () => {
   const cards = [
     'O Louco',
     'O Mago',
@@ -95,6 +96,49 @@ tarot = () => {
   ];
 
   const direction = [' de cabeça pra baixo', ' de cabeça pra cima'];
-  
+
   return cards[Math.floor(Math.random() * cards.length)] + direction[Math.floor(Math.random() * direction.length)];
+}
+
+const drag = () => {
+  const names = [
+    'Viviane',
+    'Luciula',
+    'Tieta',
+    'Victorya',
+    'Natasya',
+    'Víbora',
+    'Emmanule',
+    'Sharon',
+    'Pérola',
+    'Ximbica',
+    'Mileny',
+    'Florinda',
+    'Crystal',
+    'Joaquina'
+  ];
+
+  const surNames = [
+    'Faca Dura',
+    'Doce de Banana',
+    'Doce Mel',
+    'Vírgula Solta',
+    'Furacão',
+    'Tormenta do Destino',
+    'Do Pingo Do Mei Dia',
+    'Boca De Se Lascar',
+    'Fox',
+    'Dior',
+    'Cai De Queda',
+    'Bang Bang',
+    'Ahaza Brasa',
+    'Menina Virgem',
+    'Berro',
+    'Starlight',
+    'Swarovski',
+    'Do Brasil',
+    'Perdida no Mundo'
+  ];
+
+  return names[Math.floor(Math.random() * names.length)] + ' ' + surNames[Math.floor(Math.random() * surNames.length)];
 }
